@@ -2,16 +2,15 @@ window.addEventListener('DOMContentLoaded', (event) =>{
     getVisitCount();
 })
 
-const productionApiUrl = 'https://azureresumevisitorcounter.azurewebsites.net/api/GetVisitorCounter?';
-const localApiUrl = 'http://localhost:7071/api/GetVisitorCounter';
+const functionApi = '';
 
 const getVisitCount = () => {
     let count = 30;
-    fetch(productionApiUrl).then(response => {
-        return response.json()
-    }).then(response =>{
+    fetch(functionApi).then(Response => {
+        return Response.json()
+    }).then(Response =>{
         console.log("Website called function API.");
-        count =  response.count;
+        count = response.count
         document.getElementById("counter").innerText = count;
     }).catch(function(error){
         console.log(error);
